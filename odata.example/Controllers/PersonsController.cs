@@ -29,6 +29,9 @@ namespace odata.example.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromQuery] int quantity = 1)
         {
+            if(quantity <= 0)
+                quantity = 1;
+
             if(quantity > 1000)
                 quantity = 1000;
 
